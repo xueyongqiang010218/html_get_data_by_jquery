@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+<!--    引入 script-->
+    <script src="../static/jq/jquery-2.1.0.js"></script>
+
+
+     <script>
+
+    $(function(){
+        $.ajax({
+             type: "get",
+
+             {# 数据来自于 17 行#}
+             url: "blue/2/",
+             data: {
+
+             },
+
+             {#格式#}
+             dataType: "json",
+             success: function(data){
+
+                 {#判断字典里面这个值是否存在，如果存在生成一个标签#}
+                 var sc= data.username;
+                 if(sc!=null&&sc!=''){
+                    var html = '<span>'+sc+'</span>';
+<!--                    给id = bo的标签写数据-->
+                    $("#id1").html(html);
+                 }
+
+                var email = data.email
+                if (email != null && email != ''){
+                    var h2 = '<span>'+email+'</span>';
+                    $("#id2").html(h2);
+                }
+
+             }
+         });
+    });
+
+
+
+  </script>
+
+
+</head>
+<body>
+
+<span id="id1"></span>
+<hr>
+<span id="id2"></span>
+</body>
+</html>
